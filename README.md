@@ -47,42 +47,90 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
 
+1.Create a project with required entities.
+
+2.Create a module along with respective file name for both Multiplexer and De-multiplexer.
+
+3.Run the module and get the respective RTL outputs.
+
+4.Create university program(VWF) for getting timing diagram.
+
+5.Give the respective inputs for timing diagram and obtain the results.
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: KANISHKAR M
+RegisterNumber: 22007816 
 
+4X1 MULTIPLEXER
 
+module mux(i0, i1, i2, i3, s0, s1, y);
+input i0, i1, i2, i3, s0, s1;
+output y;
+not(s0c, s0);
+nor(s1c, s1);
+wire p, q, r, s, s0c, s1c;
+and(p, s0c, s1c, i0);
+and(q, s0c, s1, i1);
+and(r, s0, s1c, i2);
+and(s, s0, s1, i3);
+or(y, p, q, r, s);
+endmodule
 
+```
 
+```
 
+1X4 DEMULTIPLEXER
+
+module demux(y0, y1, y2, y3, s0, s1, i);
+input s0, s1, i;
+output y0, y1, y2, y3;
+wire s0c, s1c;
+nor(s0c, s0);
+nor(s1c, s1);
+and(y0, i, s0c, s1);
+and(y1, i, s0c, s1c);
+and(y2, i, s0, s1c);
+and(y3, i, s0, s1);
+endmodule
+
+```
 
 ### RTL LOGIC  
 
+4X1 MULTIPLEXER RTL
 
+![image](https://user-images.githubusercontent.com/118886772/214606934-747e042f-f75f-4262-bafd-ab34204e8a54.png)
 
+1X4 DEMULTIPLEXER RTL
 
-
-
+![image](https://user-images.githubusercontent.com/118886772/214607065-8c005dbf-300b-4a80-9a58-53354dd8f170.png)
 
 
 ### TIMING DIGRAMS  
 
+4X1 MULTIPLEXER Timing Diagram
 
+![image](https://user-images.githubusercontent.com/118886772/214607414-53f1af6c-1a8a-4aef-8c4f-16825a42bb28.png)
 
+1X4 DEMULTIPLEXER Timing Diagram
 
+![image](https://user-images.githubusercontent.com/118886772/214607624-9434454f-9f3a-4f0d-b0ce-1577a9b3d1e6.png)
 
 ### TRUTH TABLE 
 
+Multiplexer Truth Table
 
+![image](https://user-images.githubusercontent.com/118886772/214607848-a878972c-0545-455f-9950-14993d4f8960.png)
 
+DeMultiplexer Truth Table
 
-
+![image](https://user-images.githubusercontent.com/118886772/214607914-173aaa79-02b9-4bd2-9c43-095c68e4b9b9.png)
 
 ### RESULTS 
+
+Thus the implementation of Multiplexer and Demultiplexer are verified
